@@ -70,7 +70,8 @@ RUN ./bootstrap.sh &&\
     make -j &&\
     make install
 
-RUN git clone https://gitlab.mpi-sws.org/cld/tracing/hindsight-grpc.git /root/hindsight-grpc
+RUN git clone https://github.com/dyn-tracing/microbricks.git /root/hindsight-grpc
+
 RUN git clone -b v1.1.0 --recurse-submodules https://github.com/open-telemetry/opentelemetry-cpp /root/opentelemetry
 WORKDIR /root/opentelemetry
 RUN git apply /root/hindsight-grpc/opentelemetry-1.1.0.patch
