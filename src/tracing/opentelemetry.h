@@ -37,7 +37,7 @@ inline void initNoopOpenTelemetry() {
   initGrpcPropagation();
 }
 
-inline void initTracer(std::unique_ptr<trace_sdk::SpanExporter>& exporter, bool batch_processor) {
+inline void initTracer(std::unique_ptr<trace_sdk::SpanExporter>& exporter, bool batch_processor, std::string service_name="NA") {
 
   std::vector<std::unique_ptr<trace_sdk::SpanProcessor>> processors;
 
@@ -61,7 +61,9 @@ inline void initTracer(std::unique_ptr<trace_sdk::SpanExporter>& exporter, bool 
 
 
   auto context = std::make_shared<trace_sdk::TracerContext>(
-      std::move(processors), Resource::Create({}),
+      std::move(processors), Resource::Create({
+        {"service.name", service_name}
+      }),
       std::unique_ptr<trace_sdk::Sampler>(new trace_sdk::ParentBasedSampler(
           std::make_shared<trace_sdk::AlwaysOnSampler>())));
   auto provider = opentelemetry::nostd::shared_ptr<TracerProvider>(
@@ -72,10 +74,10 @@ inline void initTracer(std::unique_ptr<trace_sdk::SpanExporter>& exporter, bool 
   initGrpcPropagation();
 }
 
-inline void initStdoutOpenTelemetry() {
+inline void initStdoutOpenTelemetry(std::string service_name) {
   auto exporter = std::unique_ptr<trace_sdk::SpanExporter>(
       new opentelemetry::exporter::trace::OStreamSpanExporter);
-  initTracer(exporter, false);
+  initTracer(exporter, false, service_name);
 }
 
 inline void initLocalMemoryOpenTelemetry() {
@@ -84,7 +86,8 @@ inline void initLocalMemoryOpenTelemetry() {
   initTracer(exporter, false);
 }
 
-inline void initJaegerOpenTelemetry(std::string exporter_ip,
+inline void initJaegerOpenTelemetry(std::string service_name,
+                                    std::string exporter_ip,
                                     int exporter_port,
                                     bool batch_exporter) {
   opentelemetry::exporter::jaeger::JaegerExporterOptions opts;
@@ -94,7 +97,7 @@ inline void initJaegerOpenTelemetry(std::string exporter_ip,
       opentelemetry::exporter::jaeger::TransportFormat::kThriftUdpCompact;
   auto exporter = std::unique_ptr<trace_sdk::SpanExporter>(
       new opentelemetry::exporter::jaeger::JaegerExporter(opts));
-  initTracer(exporter, batch_exporter);
+  initTracer(exporter, batch_exporter, service_name);
 }
 
 }  // namespace hindsightgrpc

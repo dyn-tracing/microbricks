@@ -229,7 +229,7 @@ int main(int argc, char** argv) {
     hindsightgrpc::set_hindsight_enabled(false);
     hindsightgrpc::set_opentelemetry_enabled(true);
 
-    hindsightgrpc::initStdoutOpenTelemetry();
+    hindsightgrpc::initStdoutOpenTelemetry(arguments.service_name);
 
   } else if (arguments.tracing == "ot-noop") {
     std::cout << "Using OpenTelemetry with noop tracing." << std::endl;
@@ -258,7 +258,7 @@ int main(int argc, char** argv) {
       std::cerr << "Expected a port of otel_collector to be specified" << std::endl;
       return 0;
     }
-    hindsightgrpc::initJaegerOpenTelemetry(arguments.otel_collector_host, arguments.otel_collector_port, arguments.otel_batch_exporter);
+    hindsightgrpc::initJaegerOpenTelemetry(arguments.service_name, arguments.otel_collector_host, arguments.otel_collector_port, arguments.otel_batch_exporter);
   } else {
     std::cout << "Unknown tracing type " << arguments.tracing << std::endl;
     return 1;
