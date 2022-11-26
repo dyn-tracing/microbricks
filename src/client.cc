@@ -198,7 +198,7 @@ class HindsightGRPCClient {
     tid_raw.ToLowerBase16(nostd::span<char, 32>{&tid_buffer[0], 32});
     request.mutable_otel()->set_trace_id(std::string(tid_buffer, 32));
     // special span id
-    request.mutable_otel()->set_span_id(std::string("ffffffffffffffff"));
+    request.mutable_otel()->set_span_id(std::string(""));
     // set the sample flag with probability specified by user commands
     request.mutable_otel()->set_sample(rand() / sample_probability > RAND_MAX ? false : true);
 
