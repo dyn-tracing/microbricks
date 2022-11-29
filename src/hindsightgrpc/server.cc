@@ -904,24 +904,24 @@ void ChildCall::SendCall() {
   REQUESTDEBUG(
     request.set_debug(parent_->request_.debug());
   )
-//   OPENTELEMETRY(
-//     auto current_ctx = opentelemetry::context::RuntimeContext::GetCurrent();
-// #ifdef PROPAGATOR
-//     // Inject the OT context into the gRPC context
-//     GrpcClientCarrier carrier(&context);
-//     parent_->handler_->propagator_->Inject(carrier, current_ctx);
-//     context.AddMetadata("breadcrumb", parent_->handler_->local_address);
-// #endif
-//     // inject current span id into the request
-//     SpanContext span_context = opentelemetry::trace::GetSpan(current_ctx)->GetContext();
-//     char tid_buffer[32];
-//     span_context.trace_id().ToLowerBase16(nostd::span<char, 32>{&tid_buffer[0], 32});
-//     request.mutable_otel()->set_trace_id(std::string(tid_buffer, 32));
-//     char sid_buffer[16];
-//     span_context.span_id().ToLowerBase16(nostd::span<char, 16>{&sid_buffer[0], 16});
-//     request.mutable_otel()->set_span_id(std::string(sid_buffer, 16));
-//     request.mutable_otel()->set_sample(span_context.IsSampled() ? true : false);
-//   )
+  OPENTELEMETRY(
+    auto current_ctx = opentelemetry::context::RuntimeContext::GetCurrent();
+#ifdef PROPAGATOR
+    // Inject the OT context into the gRPC context
+    GrpcClientCarrier carrier(&context);
+    parent_->handler_->propagator_->Inject(carrier, current_ctx);
+    context.AddMetadata("breadcrumb", parent_->handler_->local_address);
+#endif
+    // inject current span id into the request
+    SpanContext span_context = opentelemetry::trace::GetSpan(current_ctx)->GetContext();
+    char tid_buffer[32];
+    span_context.trace_id().ToLowerBase16(nostd::span<char, 32>{&tid_buffer[0], 32});
+    request.mutable_otel()->set_trace_id(std::string(tid_buffer, 32));
+    char sid_buffer[16];
+    span_context.span_id().ToLowerBase16(nostd::span<char, 16>{&sid_buffer[0], 16});
+    request.mutable_otel()->set_span_id(std::string(sid_buffer, 16));
+    request.mutable_otel()->set_sample(span_context.IsSampled() ? true : false);
+  )
   HINDSIGHT(
     request.mutable_hindsight()->set_trace_id(parent_->hs_->trace_id);
     request.mutable_hindsight()->set_span_id(parent_->hs_->parent_span_id + 2);
