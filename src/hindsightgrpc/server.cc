@@ -419,11 +419,11 @@ void Request::Proceed(bool ok) {
 
     std::shared_ptr<Scope> process_scope;
     nostd::shared_ptr<Span> span;
-    OPENTELEMETRY(
-      // Create a nested span for PROCESS specifically
-      span = handler_->tracer_->StartSpan("HindsightGRPC/Exec/Process");
-      process_scope = std::make_shared<Scope>(span);
-    )
+    // OPENTELEMETRY(
+    //   // Create a nested span for PROCESS specifically
+    //   span = handler_->tracer_->StartSpan("HindsightGRPC/Exec/Process");
+    //   process_scope = std::make_shared<Scope>(span);
+    // )
     HINDSIGHT(
       span_id = hs_->parent_span_id + 2;
       hs_->LogSpanStart(span_id);
@@ -440,10 +440,10 @@ void Request::Proceed(bool ok) {
         std::cout << "[DEBUG] Executing API\n" << api_info << "===" << std::endl;
       }
     )
-    OPENTELEMETRY(
-      span->AddEvent("Executing API");
-      span->SetAttribute("Exec", api_info.exec);
-    )
+    // OPENTELEMETRY(
+    //   span->AddEvent("Executing API");
+    //   span->SetAttribute("Exec", api_info.exec);
+    // )
     HINDSIGHT(
       hs_->LogSpanEvent(span_id, "Executing API");
       hs_->LogSpanAttribute(span_id, "Exec", api_info.exec);
@@ -472,17 +472,17 @@ void Request::Proceed(bool ok) {
       )
     }
 
-    OPENTELEMETRY(
-      span->SetAttribute("MatrixExec", exec_duration);
-    )
+    // OPENTELEMETRY(
+    //   span->SetAttribute("MatrixExec", exec_duration);
+    // )
     HINDSIGHT(
       hs_->LogSpanAttribute(span_id, "MatrixExec", exec_duration);
     )
 
 
-    OPENTELEMETRY(
-      span->AddEvent("Calling Children");
-    )
+    // OPENTELEMETRY(
+    //   span->AddEvent("Calling Children");
+    // )
     HINDSIGHT(
       hs_->LogSpanEvent(span_id, "Calling Children");
     )
@@ -506,16 +506,16 @@ void Request::Proceed(bool ok) {
     if (child_calls.size() > 0) {
       InvokeChildren(child_calls, span_id);
 
-      OPENTELEMETRY(
-        span->AddEvent("Awaiting Child Responses");
-      )
+      // OPENTELEMETRY(
+      //   span->AddEvent("Awaiting Child Responses");
+      // )
       HINDSIGHT(
         hs_->LogSpanEvent(span_id, "Awaiting Child Responses");
       )
     } else {
-      OPENTELEMETRY(
-        span->AddEvent("Not making child calls");
-      )
+      // OPENTELEMETRY(
+      //   span->AddEvent("Not making child calls");
+      // )
       HINDSIGHT(
         hs_->LogSpanEvent(span_id, "Not making child calls");
       )
@@ -529,10 +529,10 @@ void Request::Proceed(bool ok) {
       }
     )
 
-    OPENTELEMETRY(
-      // End the inner span but leave the outer span
-      span->End();
-    )
+    // OPENTELEMETRY(
+    //   // End the inner span but leave the outer span
+    //   span->End();
+    // )
     HINDSIGHT(
       hs_->LogSpanEnd(span_id);
     )
@@ -540,11 +540,11 @@ void Request::Proceed(bool ok) {
     std::shared_ptr<Scope> parentscope;
     std::shared_ptr<Scope> scope;
     nostd::shared_ptr<Span> span;
-    OPENTELEMETRY(
-      parentscope = std::make_shared<Scope>(request_span);
-      span = handler_->tracer_->StartSpan("HindsightGRPC/Exec/Finish");
-      scope = std::make_shared<Scope>(span);
-    )
+    // OPENTELEMETRY(
+    //   parentscope = std::make_shared<Scope>(request_span);
+    //   span = handler_->tracer_->StartSpan("HindsightGRPC/Exec/Finish");
+    //   scope = std::make_shared<Scope>(span);
+    // )
     uint64_t span_id;
     HINDSIGHT(
       span_id = hs_->parent_span_id + 3;
@@ -556,18 +556,18 @@ void Request::Proceed(bool ok) {
     )
 
 
-    OPENTELEMETRY(
-      span->AddEvent("Finishing request");
-    )
+    // OPENTELEMETRY(
+    //   span->AddEvent("Finishing request");
+    // )
     HINDSIGHT(
       hs_->LogSpanEvent(span_id, "Finishing request");
     )
 
     if (!ok) {
     // if (request_.mutable_hindsight()->triggerflag() && (rand() % 100 < 10)) {
-      OPENTELEMETRY(
-        span->SetStatus(opentelemetry::trace::StatusCode::kError, "RPC response was not OK");
-      )
+      // OPENTELEMETRY(
+      //   span->SetStatus(opentelemetry::trace::StatusCode::kError, "RPC response was not OK");
+      // )
       HINDSIGHT(
         hs_->LogSpanStatus(span_id, (int) opentelemetry::trace::StatusCode::kError, "RPC response was not OK");
       )
@@ -578,9 +578,9 @@ void Request::Proceed(bool ok) {
         }
       )
     } else {
-      OPENTELEMETRY(
-        span->SetStatus(opentelemetry::trace::StatusCode::kOk, "RPC Response was OK");
-      )
+      // OPENTELEMETRY(
+      //   span->SetStatus(opentelemetry::trace::StatusCode::kOk, "RPC Response was OK");
+      // )
       HINDSIGHT(
         hs_->LogSpanStatus(span_id, (int) opentelemetry::trace::StatusCode::kOk, "RPC response was OK");
       )
@@ -600,13 +600,13 @@ void Request::Proceed(bool ok) {
 
         auto trigger_count = TRIGGER++;
 
-        OPENTELEMETRY(
-          std::string trigger_name = "TriggerQueue" + std::to_string(queue_id);
-          span->SetAttribute(trigger_name, (int64_t)queue_id);
-          // int valus is weirdly not recognized by the tail processors
-          // span->SetAttribute("Trigger", queue_id);
-          span->SetAttribute("Trigger", std::to_string(trigger_count));
-        )
+        // OPENTELEMETRY(
+        //   std::string trigger_name = "TriggerQueue" + std::to_string(queue_id);
+        //   span->SetAttribute(trigger_name, (int64_t)queue_id);
+        //   // int valus is weirdly not recognized by the tail processors
+        //   // span->SetAttribute("Trigger", queue_id);
+        //   span->SetAttribute("Trigger", std::to_string(trigger_count));
+        // )
 
         HINDSIGHT(
           std::string trigger_name = "TriggerQueue" + std::to_string(queue_id);
@@ -631,27 +631,27 @@ void Request::Proceed(bool ok) {
           hs_->LogSpanAttribute(span_id, "Trigger", TRIGGER_ID_HEAD_BASED_SAMPLING);
           // triggers_fire(&hindsight.triggers, TRIGGER_ID_HEAD_BASED_SAMPLING, hs_->trace_id, hs_->trace_id);
         )
-        OPENTELEMETRY(
-          std::string trigger_name = "TriggerQueue" + std::to_string(TRIGGER_ID_HEAD_BASED_SAMPLING);
-          span->SetAttribute(trigger_name, TRIGGER_ID_HEAD_BASED_SAMPLING);
-          span->SetAttribute("Trigger", TRIGGER_ID_HEAD_BASED_SAMPLING);
-        )
+        // OPENTELEMETRY(
+        //   std::string trigger_name = "TriggerQueue" + std::to_string(TRIGGER_ID_HEAD_BASED_SAMPLING);
+        //   span->SetAttribute(trigger_name, TRIGGER_ID_HEAD_BASED_SAMPLING);
+        //   span->SetAttribute("Trigger", TRIGGER_ID_HEAD_BASED_SAMPLING);
+        // )
       }
 #endif
     }
 
-    OPENTELEMETRY(
-      // for mapping child calls
-      span->SetAttribute("LocalAddress", handler_->local_address);
-      span->AddEvent("Request complete");
-    )
+    // OPENTELEMETRY(
+    //   // for mapping child calls
+    //   span->SetAttribute("LocalAddress", handler_->local_address);
+    //   span->AddEvent("Request complete");
+    // )
     HINDSIGHT(
       hs_->LogSpanEvent(span_id, "Request complete");
     )
 
-    OPENTELEMETRY(
-      span->End();
-    )
+    // OPENTELEMETRY(
+    //   span->End();
+    // )
     HINDSIGHT(
       hs_->LogSpanEnd(span_id);
     )
@@ -682,15 +682,15 @@ void Request::InvokeChildren(std::vector<Outcall*> outcalls, uint64_t span_id) {
 
 void Request::ChildResponseReceived(ChildCall* call, bool ok) {
   std::shared_ptr<Scope> scope;
-  OPENTELEMETRY(
-    scope = std::make_shared<Scope>(request_span);
-  )
+  // OPENTELEMETRY(
+  //   scope = std::make_shared<Scope>(request_span);
+  // )
 
 
   if (!ok) {
-    OPENTELEMETRY(
-      call->childcall_span->AddEvent("Failed to invoke child");
-    )
+    // OPENTELEMETRY(
+    //   call->childcall_span->AddEvent("Failed to invoke child");
+    // )
     HINDSIGHT(
       hs_->LogSpanEvent(call->id_, "Failed to invoke child");
     )
@@ -700,18 +700,18 @@ void Request::ChildResponseReceived(ChildCall* call, bool ok) {
       }
     )
   } else {
-    OPENTELEMETRY(
-      call->childcall_span->AddEvent("Child response received");
-    )
+    // OPENTELEMETRY(
+    //   call->childcall_span->AddEvent("Child response received");
+    // )
     HINDSIGHT(
       hs_->LogSpanEvent(call->id_, "Child response received");
     )
 
     if (call->status.ok()) {
-      OPENTELEMETRY(
-        call->childcall_span->SetAttribute("Response payload", call->reply.payload());
-        call->childcall_span->SetStatus(opentelemetry::trace::StatusCode::kOk, "Child response was OK");
-      )
+      // OPENTELEMETRY(
+      //   call->childcall_span->SetAttribute("Response payload", call->reply.payload());
+      //   call->childcall_span->SetStatus(opentelemetry::trace::StatusCode::kOk, "Child response was OK");
+      // )
       HINDSIGHT(
         hs_->LogSpanAttributeStr(call->id_, "Response payload", call->reply.payload());
         hs_->LogSpanStatus(call->id_, (int) opentelemetry::trace::StatusCode::kOk, "Child response was OK");
@@ -724,9 +724,9 @@ void Request::ChildResponseReceived(ChildCall* call, bool ok) {
       )
 
     } else {
-      OPENTELEMETRY(
-        call->childcall_span->SetStatus(opentelemetry::trace::StatusCode::kError, "Child response was not OK");
-      )
+      // OPENTELEMETRY(
+      //   call->childcall_span->SetStatus(opentelemetry::trace::StatusCode::kError, "Child response was not OK");
+      // )
       HINDSIGHT(
         hs_->LogSpanStatus(call->id_, (int) opentelemetry::trace::StatusCode::kError, "Child response was not OK");
       )
@@ -753,10 +753,10 @@ void Request::ChildResponseReceived(ChildCall* call, bool ok) {
 void Request::Complete() { 
   nostd::shared_ptr<Span> span;
   std::shared_ptr<Scope> scope;
-  OPENTELEMETRY(
-    span = handler_->tracer_->StartSpan("HindsightGRPC/Exec/Complete");
-    scope = std::make_shared<Scope>(span);
-  )
+  // OPENTELEMETRY(
+  //   span = handler_->tracer_->StartSpan("HindsightGRPC/Exec/Complete");
+  //   scope = std::make_shared<Scope>(span);
+  // )
   uint64_t span_id;
   HINDSIGHT(
     span_id = hs_->parent_span_id + 4;
@@ -779,10 +779,10 @@ void Request::Complete() {
   status_ = FINISH;
   responder_.Finish(reply_, Status::OK, this);
 
-  OPENTELEMETRY(
-    span->AddEvent("Sending RPC response");
-    span->End();
-  )
+  // OPENTELEMETRY(
+  //   span->AddEvent("Sending RPC response");
+  //   span->End();
+  // )
   HINDSIGHT(
     hs_->LogSpanEvent(span_id, "Sending RPC response");
     hs_->LogSpanEnd(span_id);
@@ -845,9 +845,9 @@ ChildCall* ChildClient::Call(Request* parent, Outcall* outcall, int id) {
 ChildCall::ChildCall(ChildClient* child, Request* parent, Outcall* outcall, int id) : child_(child),
   parent_(parent), outcall_(outcall), id_(id) {
   
-  OPENTELEMETRY(
-    this->childcall_span = parent_->handler_->tracer_->StartSpan("HindsightGRPC/ChildCall");
-  )
+  // OPENTELEMETRY(
+  //   this->childcall_span = parent_->handler_->tracer_->StartSpan("HindsightGRPC/ChildCall");
+  // )
   HINDSIGHT(
     parent->hs_->LogSpanStart(id_);
     parent->hs_->LogSpanName(id_, "HindsightGRPC/ChildCall");
@@ -863,18 +863,18 @@ void ChildCall::SendCall() {
   std::shared_ptr<Scope> childcall_scope;
   std::shared_ptr<Scope> scope;
   nostd::shared_ptr<Span> span;
-  OPENTELEMETRY(
-    childcall_scope = std::make_shared<Scope>(childcall_span);
+  // OPENTELEMETRY(
+  //   childcall_scope = std::make_shared<Scope>(childcall_span);
 
-    childcall_span->AddEvent("Making child RPC call");
+  //   childcall_span->AddEvent("Making child RPC call");
 
-    span = parent_->handler_->tracer_->StartSpan("HindsightGRPC/ChildCall/Prepare");
-    span->SetAttribute("Destination", outcall_->service_name);
-    span->SetAttribute("Breadcrumb", outcall_->breadcrumb);
-    span->SetAttribute("API", outcall_->api_name);
+  //   span = parent_->handler_->tracer_->StartSpan("HindsightGRPC/ChildCall/Prepare");
+  //   span->SetAttribute("Destination", outcall_->service_name);
+  //   span->SetAttribute("Breadcrumb", outcall_->breadcrumb);
+  //   span->SetAttribute("API", outcall_->api_name);
 
-    scope = std::make_shared<Scope>(span);
-  )
+  //   scope = std::make_shared<Scope>(span);
+  // )
   HINDSIGHT(
     parent_->hs_->LogSpanStart(id_+1);
     parent_->hs_->LogSpanName(id_+1, "HindsightGRPC/ChildCall/Prepare");
@@ -937,10 +937,10 @@ void ChildCall::SendCall() {
   // Register this object's Proceed method as the callback upon completion
   response_reader->Finish(&reply, &status, this);
 
-  OPENTELEMETRY(
-    span->AddEvent("Child RPC call initiated");
-    span->End();
-  )
+  // OPENTELEMETRY(
+  //   span->AddEvent("Child RPC call initiated");
+  //   span->End();
+  // )
   HINDSIGHT(
     parent_->hs_->LogSpanEvent(id_+1, "Child RPC call initiated");
     parent_->hs_->LogSpanEnd(id_+1);
