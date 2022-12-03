@@ -70,7 +70,7 @@ RUN ./bootstrap.sh &&\
     make -j &&\
     make install
 
-RUN git clone https://github.com/dyn-tracing/microbricks.git /root/hindsight-grpc
+RUN git clone -b 1.0.0 https://github.com/dyn-tracing/microbricks.git /root/hindsight-grpc
 
 RUN git clone -b v1.1.0 --recurse-submodules https://github.com/open-telemetry/opentelemetry-cpp /root/opentelemetry
 WORKDIR /root/opentelemetry
