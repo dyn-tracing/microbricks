@@ -1,0 +1,704 @@
+{
+    "addresses": [
+        {
+            "name": "HeliotropeHumpback",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50051",
+            "agent_port": "50051"
+        },
+        {
+            "name": "PlatinumWar",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50052",
+            "agent_port": "50052"
+        },
+        {
+            "name": "JadeToad",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50053",
+            "agent_port": "50053"
+        },
+        {
+            "name": "GreyMammal",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50054",
+            "agent_port": "50054"
+        },
+        {
+            "name": "MidnightTree",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50055",
+            "agent_port": "50055"
+        },
+        {
+            "name": "WhiteChameleon",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50056",
+            "agent_port": "50056"
+        },
+        {
+            "name": "CrimsonSawfish",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50057",
+            "agent_port": "50057"
+        },
+        {
+            "name": "BrownHaddock",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50058",
+            "agent_port": "50058"
+        },
+        {
+            "name": "PlumList",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50059",
+            "agent_port": "50059"
+        },
+        {
+            "name": "ForestReindeer",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50060",
+            "agent_port": "50060"
+        },
+        {
+            "name": "PlumFlamingo",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50061",
+            "agent_port": "50061"
+        },
+        {
+            "name": "JadeToad",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50062",
+            "agent_port": "50062"
+        },
+        {
+            "name": "PinkMoose",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50063",
+            "agent_port": "50063"
+        },
+        {
+            "name": "ShamrockDromedary",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50064",
+            "agent_port": "50064"
+        },
+        {
+            "name": "DandelionGecko",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50065",
+            "agent_port": "50065"
+        },
+        {
+            "name": "FirebrickMastodon",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50066",
+            "agent_port": "50066"
+        },
+        {
+            "name": "GambogeMole",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50067",
+            "agent_port": "50067"
+        },
+        {
+            "name": "GreyMammal",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50068",
+            "agent_port": "50068"
+        },
+        {
+            "name": "MidnightTree",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50069",
+            "agent_port": "50069"
+        },
+        {
+            "name": "WhiteChameleon",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50070",
+            "agent_port": "50070"
+        },
+        {
+            "name": "BrownHaddock",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50071",
+            "agent_port": "50071"
+        },
+        {
+            "name": "PowderGround",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50072",
+            "agent_port": "50072"
+        },
+        {
+            "name": "ForestReindeer",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50073",
+            "agent_port": "50073"
+        },
+        {
+            "name": "PlumFlamingo",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50074",
+            "agent_port": "50074"
+        },
+        {
+            "name": "PinkMoose",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50075",
+            "agent_port": "50075"
+        },
+        {
+            "name": "OchreCoral",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50076",
+            "agent_port": "50076"
+        },
+        {
+            "name": "ChartreuseRabbit",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50077",
+            "agent_port": "50077"
+        },
+        {
+            "name": "PinkMoose",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50078",
+            "agent_port": "50078"
+        },
+        {
+            "name": "KellyAnglerfish",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50079",
+            "agent_port": "50079"
+        },
+        {
+            "name": "AuburnCat",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50080",
+            "agent_port": "50080"
+        },
+        {
+            "name": "PurpleFlamingo",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50081",
+            "agent_port": "50081"
+        },
+        {
+            "name": "PlumFlamingo",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50082",
+            "agent_port": "50082"
+        },
+        {
+            "name": "RoseGopher",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50083",
+            "agent_port": "50083"
+        },
+        {
+            "name": "MagnoliaBison",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50084",
+            "agent_port": "50084"
+        },
+        {
+            "name": "BronzeCockroach",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50085",
+            "agent_port": "50085"
+        },
+        {
+            "name": "TerraScallop",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50086",
+            "agent_port": "50086"
+        },
+        {
+            "name": "WhitePrimate",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50087",
+            "agent_port": "50087"
+        },
+        {
+            "name": "SilverPanther",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50088",
+            "agent_port": "50088"
+        },
+        {
+            "name": "CardinalLaboratory",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50089",
+            "agent_port": "50089"
+        },
+        {
+            "name": "GreenFelidae",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50090",
+            "agent_port": "50090"
+        },
+        {
+            "name": "RoyalVulture",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50091",
+            "agent_port": "50091"
+        },
+        {
+            "name": "MidnightKite",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50092",
+            "agent_port": "50092"
+        },
+        {
+            "name": "WhipLeech",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50093",
+            "agent_port": "50093"
+        },
+        {
+            "name": "CyanWeasel",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50094",
+            "agent_port": "50094"
+        },
+        {
+            "name": "CottaCow",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50095",
+            "agent_port": "50095"
+        },
+        {
+            "name": "BrownMarmot",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50096",
+            "agent_port": "50096"
+        },
+        {
+            "name": "PlumBear",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50097",
+            "agent_port": "50097"
+        },
+        {
+            "name": "MistyLemur",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50098",
+            "agent_port": "50098"
+        },
+        {
+            "name": "BlossomDragonfly",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50099",
+            "agent_port": "50099"
+        },
+        {
+            "name": "TitaniumLouse",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50100",
+            "agent_port": "50100"
+        },
+        {
+            "name": "TanOrca",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50101",
+            "agent_port": "50101"
+        },
+        {
+            "name": "SepiaOcelot",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50102",
+            "agent_port": "50102"
+        },
+        {
+            "name": "FrenchBeetle",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50103",
+            "agent_port": "50103"
+        },
+        {
+            "name": "ApricotLadybug",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50104",
+            "agent_port": "50104"
+        },
+        {
+            "name": "BrownWhitefish",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50105",
+            "agent_port": "50105"
+        },
+        {
+            "name": "SepiaCanary",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50106",
+            "agent_port": "50106"
+        },
+        {
+            "name": "BrownCapybara",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50107",
+            "agent_port": "50107"
+        },
+        {
+            "name": "BusFox",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50108",
+            "agent_port": "50108"
+        },
+        {
+            "name": "RedCrayfish",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50109",
+            "agent_port": "50109"
+        },
+        {
+            "name": "FlaxHoverfly",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50110",
+            "agent_port": "50110"
+        },
+        {
+            "name": "MauveBreeds",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50111",
+            "agent_port": "50111"
+        },
+        {
+            "name": "TomatoHawk",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50112",
+            "agent_port": "50112"
+        },
+        {
+            "name": "HarlequinTiger",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50113",
+            "agent_port": "50113"
+        },
+        {
+            "name": "CornKiwi",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50114",
+            "agent_port": "50114"
+        },
+        {
+            "name": "GreenMuskox",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50115",
+            "agent_port": "50115"
+        },
+        {
+            "name": "GambogeBat",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50116",
+            "agent_port": "50116"
+        },
+        {
+            "name": "LavenderSmelt",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50117",
+            "agent_port": "50117"
+        },
+        {
+            "name": "ForestReindeer",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50118",
+            "agent_port": "50118"
+        },
+        {
+            "name": "PlumFlamingo",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50119",
+            "agent_port": "50119"
+        },
+        {
+            "name": "BrownPilot",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50120",
+            "agent_port": "50120"
+        },
+        {
+            "name": "DykeArctic",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50121",
+            "agent_port": "50121"
+        },
+        {
+            "name": "ChampagneLark",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50122",
+            "agent_port": "50122"
+        },
+        {
+            "name": "MaroonMosquito",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50123",
+            "agent_port": "50123"
+        },
+        {
+            "name": "HarlequinTiger",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50124",
+            "agent_port": "50124"
+        },
+        {
+            "name": "HanLynx",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50125",
+            "agent_port": "50125"
+        },
+        {
+            "name": "OchreMountain",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50126",
+            "agent_port": "50126"
+        },
+        {
+            "name": "PlumFlamingo",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50127",
+            "agent_port": "50127"
+        },
+        {
+            "name": "ChestnutDromedary",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50128",
+            "agent_port": "50128"
+        },
+        {
+            "name": "GreenFelidae",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50129",
+            "agent_port": "50129"
+        },
+        {
+            "name": "FuchsiaBarnacle",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50130",
+            "agent_port": "50130"
+        },
+        {
+            "name": "ChestnutSockeye",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50131",
+            "agent_port": "50131"
+        },
+        {
+            "name": "KellyAnglerfish",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50132",
+            "agent_port": "50132"
+        },
+        {
+            "name": "HarlequinTiger",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50133",
+            "agent_port": "50133"
+        },
+        {
+            "name": "TawnyMeerkat",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50134",
+            "agent_port": "50134"
+        },
+        {
+            "name": "ZucchiniPanthera",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50135",
+            "agent_port": "50135"
+        },
+        {
+            "name": "NavyPenguin",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50136",
+            "agent_port": "50136"
+        },
+        {
+            "name": "TitaniumLouse",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50137",
+            "agent_port": "50137"
+        },
+        {
+            "name": "WhiteWoodpecker",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50138",
+            "agent_port": "50138"
+        },
+        {
+            "name": "HanLynx",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50139",
+            "agent_port": "50139"
+        },
+        {
+            "name": "PinkMoose",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50140",
+            "agent_port": "50140"
+        },
+        {
+            "name": "ShamrockDromedary",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50141",
+            "agent_port": "50141"
+        },
+        {
+            "name": "DandelionGecko",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50142",
+            "agent_port": "50142"
+        },
+        {
+            "name": "FirebrickMastodon",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50143",
+            "agent_port": "50143"
+        },
+        {
+            "name": "GambogeMole",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50144",
+            "agent_port": "50144"
+        },
+        {
+            "name": "PowderGround",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50145",
+            "agent_port": "50145"
+        },
+        {
+            "name": "PinkMoose",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50146",
+            "agent_port": "50146"
+        },
+        {
+            "name": "CreamPests",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50147",
+            "agent_port": "50147"
+        },
+        {
+            "name": "OchreCoral",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50148",
+            "agent_port": "50148"
+        },
+        {
+            "name": "TangerineBandicoot",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50149",
+            "agent_port": "50149"
+        },
+        {
+            "name": "YellowAphid",
+            "deploy_addr": "0.0.0.0",
+            "hostname": "localhost",
+            "port": "50150",
+            "agent_port": "50150"
+        }
+    ]
+}

@@ -41,11 +41,12 @@ def find_graph(i, n):
                 queue.append(ele)
 
 import sys
-if (len(sys.argv) < 2):
+if (len(sys.argv) < 3):
     print("Provide argument: Number of services")
+    print("Provide argument: Start Index ajcnsh")
     exit(0)
 
-find_graph(400, int(sys.argv[1]))
+find_graph(int(sys.argv[2]), int(sys.argv[1]))
 
 new_data = []
 
@@ -74,3 +75,38 @@ res["names"] = selected_services
 res["services"] = new_data
 with open(f"./../config/{sys.argv[1]}_alibaba_topology.json", "w") as f:
     f.write(json.dumps(res, indent=4))
+
+
+# Making addresses file
+addresses = []
+
+port = 50051
+
+for ele in selected_services:
+    addr = {
+        "name": ele,
+        "deploy_addr": "0.0.0.0",
+        "hostname": "localhost",
+        "port": f"{port}",
+        "agent_port": f"{port}"
+    }
+    port += 1
+    addresses.append(addr)
+
+res = {
+    "addresses": addresses
+}
+
+with open(f"./../config/{sys.argv[1]}_alibaba_addresses.json", "w") as f:
+    f.write(json.dumps(res, indent=4))
+
+# Creating start.sh file for docker
+start = "#!/bin/bash\n"
+start += f"./client -t ../config/100_alibaba_topology.json -a ../config/100_alibaba_addresses.json --openloop --requests=100 {selected_services[0]} > ./clogs.txt &\n"
+
+for ele in selected_services:
+    start += f"./server -t ../config/100_alibaba_topology.json -a ../config/100_alibaba_addresses.json -n -x ot-jaeger {ele} -h otelcollector -p 6832 &\n"
+start = start[:-2]
+
+with open("./../docker/alibaba_100/start.sh", "w") as f:
+    f.write(start)
