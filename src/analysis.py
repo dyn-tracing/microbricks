@@ -35,10 +35,11 @@ def find_graph(i, n):
     while len(queue) > 0 and len(selected_services) < n:
         i = queue.pop(0)
 
-        selected_services.append(service_names[i])
-        for ele in adjacency_list[service_names[i]]:
-            if (service_names[ele] not in selected_services):
-                queue.append(ele)
+        if service_names[i] not in selected_services:
+            selected_services.append(service_names[i])
+            for ele in adjacency_list[service_names[i]]:
+                if (service_names[ele] not in selected_services):
+                    queue.append(ele)
 
 import sys
 if (len(sys.argv) < 3):
