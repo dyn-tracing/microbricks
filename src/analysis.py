@@ -48,6 +48,7 @@ if (len(sys.argv) < 3):
     exit(0)
 
 find_graph(int(sys.argv[2]), int(sys.argv[1]))
+print(f"{len(selected_services)} services selected.")
 
 new_data = []
 
@@ -104,7 +105,7 @@ with open(f"./../config/{sys.argv[1]}_alibaba_addresses.json", "w") as f:
 # Creating start.sh file for docker
 start = "#!/bin/bash\n"
 start += "git clone https://github.com/dyn-tracing/microbricks.git \n"
-start += f"./client -t ./microbricks/config/100_alibaba_topology.json -a ./microbricks/config/100_alibaba_addresses.json --openloop --requests=100 {selected_services[0]} > ./clogs.txt &\n"
+start += f"./client -t ./microbricks/config/100_alibaba_topology.json -a ./microbricks/config/100_alibaba_addresses.json --openloop --requests=1000 {selected_services[0]} > ./clogs.txt &\n"
 
 for ele in selected_services:
     start += f"./server -t ./microbricks/config/100_alibaba_topology.json -a ./microbricks/config/100_alibaba_addresses.json -n -x ot-jaeger {ele} -h otelcollector -p 6832 &\n"
