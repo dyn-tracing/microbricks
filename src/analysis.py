@@ -103,10 +103,11 @@ with open(f"./../config/{sys.argv[1]}_alibaba_addresses.json", "w") as f:
 
 # Creating start.sh file for docker
 start = "#!/bin/bash\n"
-start += f"./client -t ../config/100_alibaba_topology.json -a ../config/100_alibaba_addresses.json --openloop --requests=100 {selected_services[0]} > ./clogs.txt &\n"
+start += "git clone https://github.com/dyn-tracing/microbricks.git \n"
+start += f"./client -t ./microbricks/config/100_alibaba_topology.json -a ./microbricks/config/100_alibaba_addresses.json --openloop --requests=100 {selected_services[0]} > ./clogs.txt &\n"
 
 for ele in selected_services:
-    start += f"./server -t ../config/100_alibaba_topology.json -a ../config/100_alibaba_addresses.json -n -x ot-jaeger {ele} -h otelcollector -p 6832 &\n"
+    start += f"./server -t ./microbricks/config/100_alibaba_topology.json -a ./microbricks/config/100_alibaba_addresses.json -n -x ot-jaeger {ele} -h otelcollector -p 6832 &\n"
 start = start[:-2]
 
 with open("./../docker/alibaba_100/start.sh", "w") as f:
