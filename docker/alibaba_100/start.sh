@@ -1,6 +1,5 @@
 #!/bin/bash
 git clone https://github.com/dyn-tracing/microbricks.git 
-./client -t ./microbricks/config/100_alibaba_topology.json -a ./microbricks/config/100_alibaba_addresses.json --openloop --requests=1000 CornTapir > ./clogs.txt &
 ./server -t ./microbricks/config/100_alibaba_topology.json -a ./microbricks/config/100_alibaba_addresses.json -n -x ot-jaeger CornTapir -h otelcollector -p 6832 &
 ./server -t ./microbricks/config/100_alibaba_topology.json -a ./microbricks/config/100_alibaba_addresses.json -n -x ot-jaeger TurquoiseRaven -h otelcollector -p 6832 &
 ./server -t ./microbricks/config/100_alibaba_topology.json -a ./microbricks/config/100_alibaba_addresses.json -n -x ot-jaeger ViridianPanda -h otelcollector -p 6832 &
@@ -100,4 +99,5 @@ git clone https://github.com/dyn-tracing/microbricks.git
 ./server -t ./microbricks/config/100_alibaba_topology.json -a ./microbricks/config/100_alibaba_addresses.json -n -x ot-jaeger PinkGuppy -h otelcollector -p 6832 &
 ./server -t ./microbricks/config/100_alibaba_topology.json -a ./microbricks/config/100_alibaba_addresses.json -n -x ot-jaeger MistyGuinea -h otelcollector -p 6832 &
 ./server -t ./microbricks/config/100_alibaba_topology.json -a ./microbricks/config/100_alibaba_addresses.json -n -x ot-jaeger UmberRobin -h otelcollector -p 6832 &
-./server -t ./microbricks/config/100_alibaba_topology.json -a ./microbricks/config/100_alibaba_addresses.json -n -x ot-jaeger JadePanda -h otelcollector -p 6832 
+./server -t ./microbricks/config/100_alibaba_topology.json -a ./microbricks/config/100_alibaba_addresses.json -n -x ot-jaeger JadePanda -h otelcollector -p 6832 &
+./client -t ./microbricks/config/100_alibaba_topology.json -a ./microbricks/config/100_alibaba_addresses.json --openloop --requests=1000 CornTapir 
