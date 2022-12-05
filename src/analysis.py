@@ -43,8 +43,8 @@ def find_graph(i, n):
 
 import sys
 if (len(sys.argv) < 3):
-    print("Provide argument: Number of services")
-    print("Provide argument: Start Index ajcnsh")
+    print("Provide argument: Number of services (e.g., 100)")
+    print("Provide argument: Start Index ajcnsh (e.g., 300)")
     exit(0)
 
 find_graph(int(sys.argv[2]), int(sys.argv[1]))
